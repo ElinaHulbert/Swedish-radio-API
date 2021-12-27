@@ -64,15 +64,13 @@ async function getChannels(){
     .then(data => (data.channels));
 }
 
+
 async function renderChannels(){
   let channels = await getChannels()
   console.log(channels)
   channels.forEach(channel => {
-    // console.log(channel)
-   
-    
-  createList(channel.image, channel.liveaudio.id)
-  // createAudio(channel.liveaudio.id)
+  createList(channel.image, channel.liveaudio.id, channel.tagline, channel.name)
+  
   console.log(channel.liveaudio.id)
   });
   
@@ -80,31 +78,40 @@ async function renderChannels(){
 }
 
 renderChannels()
+
 var playing = false;
 
 
-
-function createList(image, idNumber){
+function createList(image, idNumber, description, name){
   const img = document.createElement("img")
   const li = document.createElement("li") 
+  const h3 = document.createElement("h3")
+  const p = document.createElement("p")
+  const a = document.createElement("a")
+  li.setAttribute("class", "tag")
+  console.log(li)
+  
   if (image){
   document.getElementById("list").appendChild(li).appendChild(img).setAttribute('src', image)
-  img.setAttribute('id', idNumber)
+  document.getElementById("list").appendChild(li).appendChild(a).setAttribute("href", "")
+  document.getElementById("list").appendChild(li).appendChild(h3)
+  document.getElementById("list").appendChild(li).appendChild(p)
+  a.textContent = 'Alla Program';
+  h3.innerText = `${name}`;
+  p.innerText = `${description}`;
+  li.setAttribute('id', idNumber)
   img.addEventListener("click", function (event){
-    document.querySelector(".playlist").setAttribute("src", `https://sverigesradio.se/topsy/direkt/srapi/${idNumber}.mp3`)
-
+  document.querySelector(".playlist").setAttribute("src", `https://sverigesradio.se/topsy/direkt/srapi/${idNumber}.mp3`)
     if(!playing) {
       play();
   } else {
       pause();
   }
-    
-    
   })
 }
- 
- 
 }
+
+
 
 
 function play() {
@@ -127,3 +134,8 @@ function pause() {
 
 
 //   .then(response => response.json())
+
+function createProgramLink(){
+ 
+  
+}
