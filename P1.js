@@ -1,40 +1,42 @@
-fetch('http://api.sr.se/api/v2/programs/index?channelid=132&pagination=false&format=json')
-  .then(response => response.json())
-  .then(data => showTheTitle(data));
- 
+id = [132, 163, 164, 213, 223, 205, 210, 212, 220, 200];
+iterateId();
 
+function iterateId(){
+  console.log(id, " id");
+  id.forEach(id => {
+    console.log(id + " iterated id")
+  });
   
-
- function showTheTitle(data){
-   console.log(data)
-   const tracks = document.getElementById("tracks")
-
-
-   for (i = 0; i<data.programs.length; i++){
-    // console.log(data.programs[i])
-
-
-    const playlistItem = document.createElement('div');
-    playlistItem.classList.add('playlist-item')
-
-    const playlistItemImg = document.createElement('img')
-    playlistItemImg.classList.add('playlist-item-img')
-    playlistItemImg.setAttribute('src', data.programs[i].programimage.toString())
-   //  console.log(playlistItemImg)
-
-   //  document.getElementById("cover-image").src=data.channels[6].image
-   tracks.appendChild(playlistItem);
-   playlistItem.appendChild(playlistItemImg);
-   }
-   
-  
-
 }
 
-// const arrayOfId=[132, 163, 164, 213, 223, 205, 210, 212, 220, 200]
-// for (const id of arrayOfId){
-//     const response = await fetch('https://api.sr.se/api/v2/channels?format=json')
-// }
+
+  fetch(`http://api.sr.se/api/v2/programs/index?channelid=${id}&pagination=false&format=json`)
+    .then(response => response.json())
+    .then(data =>  showTheTitle(data));
+
+
+function showTheTitle(data){
+
+    console.log(data, " data in showTheTitle")
+    const tracks = document.getElementById("tracks")
+
+
+    for (i = 0; i<data.programs.length; i++){
+      const playlistItem = document.createElement('div');
+      playlistItem.classList.add('playlist-item')
+
+      const playlistItemImg = document.createElement('img')
+      playlistItemImg.classList.add('playlist-item-img')
+      playlistItemImg.setAttribute('src', data.programs[i].programimage.toString())
+      console.log(data.programs[i].programimage.toString())
+    
+    tracks.appendChild(playlistItem);
+    playlistItem.appendChild(playlistItemImg);
+    }
+}
+ 
+
+
 
 //132 P1
 //163 P2

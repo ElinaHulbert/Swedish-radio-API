@@ -96,7 +96,7 @@ function createList(image, idNumber, description, name){
   document.getElementById("list").appendChild(li).appendChild(a).setAttribute("href", "")
   document.getElementById("list").appendChild(li).appendChild(h3)
   document.getElementById("list").appendChild(li).appendChild(p)
-  a.textContent = 'Alla Program';
+  a.textContent = 'All Programs';
   h3.innerText = `${name}`;
   p.innerText = `${description}`;
   li.setAttribute('id', idNumber)
@@ -104,9 +104,11 @@ function createList(image, idNumber, description, name){
   document.querySelector(".playlist").setAttribute("src", `https://sverigesradio.se/topsy/direkt/srapi/${idNumber}.mp3`)
     if(!playing) {
       play();
+      img.setAttribute("class", "active")
   } else {
-      pause();
+    pause()
   }
+  img.removeAttribute("class", "active")
   })
 }
 }
