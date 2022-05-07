@@ -1,16 +1,34 @@
+@font-face {
+  font-family: 'marviofree_personal_use';
+  src: url('./src/fonts/marvio-freepersonaluse-webfont.woff2') format('woff2'),
+       url('./src/fonts/marvio-freepersonaluse-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body{
+  background-color: #a8ceb5;
     width: auto;
     height: 100vh;
-    padding: 0 8% 0 8%;
-    
+    padding: 0;
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
   }
 
-h1{
+header {
+  outline: 3px groove rgb(255, 255, 255);
+  outline-offset: -40px;
     width: 100%;
-    font-size:5em;
-    display:flex;
-    justify-content: center;
+    height: 100vh;
+    background-color: #af9e97;
+    background: url("./src/img/main.jpg");
+    background-size: cover;
+    background-position: center;
+    
+    position: relative;
 }
+
 
 ul{
   list-style-type: none;
@@ -28,11 +46,7 @@ ul{
   flex-direction: row;
 }
 
-.wrapper {
-  
-  
-  
-}
+
 
 li {
   display: flex; 
@@ -70,68 +84,101 @@ button{
   align-self: center;
 }
 
-/* 
-:root {
-  --spotify-green: #cdbbe9;
-  --spotify-green-highlight: #b196f0;
-  --bg: rgb(28, 25, 32);
-  --img-size: 300px;
+
+
+
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
 }
 
-body {
-  font-family: 'Red Hat Mono', sans-serif;
-  background-color: var(--bg);
-  overflow-x: hidden;
-  color: white;
-}
-
-
-.playlist-grid .playlist-item {
-  background-color: var(--bg);
-  height: var(--img-size);
+.main-content {
+  text-align: center;
+  text-transform: uppercase;
   position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 2px;
-  transition: 0.3s;
+  height: 100vh;
+}
+
+.hover,
+.word,
+h1 {
   cursor: pointer;
 }
-.playlist-grid .playlist-item:hover,
-.playlist-grid .playlist-item.active {
-  z-index: 1;
-  transform: scale(1.1);
-  box-shadow: 0 1px 1px 1px rgb(0 0 0 / 20%);
+
+h1 {
+  position: relative;
+  color: #e8f6ed;
+  font: 900 80px 'Open Sans';
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
-.playlist-grid .playlist-item:hover {
-  z-index: 2;
+
+.concept {
+  position: relative;
+  padding: 5em;
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-align: center;
 }
-.playlist-grid .playlist-item .playlist-item-img {
+.concept:before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
-  transition: 0.3s;
-}
-.playlist-grid .playlist-item .playlist-item-title {
+  top: 0;
+  left: 0;
+  background: radial-gradient(rgba(0, 0, 0, 0.3), transparent);
   opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  color: white;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.concept:hover:before {
+  opacity: 0.5;
+}
+
+.concept-seven {
   display: flex;
   justify-content: center;
-  align-content: center;
-  z-index: 3;
-  transition: 0.3s;
+  align-items: center;
 }
-.playlist-grid .playlist-item:hover .playlist-item-img,
-.playlist-grid .playlist-item.active .playlist-item-img,
-.playlist-grid .playlist-item:hover .playlist-item-title,
-.playlist-grid .playlist-item.active .playlist-item-title {
-  opacity: 1;
-} */
+.concept-seven h1 {
+  font-family: 'marviofree_personal_use';
+  letter-spacing: 35px;
+  position: relative;
+}
+.concept-seven h1:before {
+  font-family: 'marviofree_personal_use';
+  font-size: 50px;
+  content: "feel the vibes";
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  max-width: 400px;
+  color: transparent;
+  letter-spacing: 10px;
+  text-shadow: none;
+}
+.concept-seven:hover h1:before {
+  transition: 1s ease;
+  color: rgba(255, 255, 255, 0.8);
+  animation: jump-out 1s ease forwards;
+}
+
+@keyframes jump-out {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}

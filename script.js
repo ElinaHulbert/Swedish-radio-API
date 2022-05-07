@@ -102,11 +102,8 @@ function createList(image, idNumber, description, name){
   li.setAttribute('id', idNumber)
   img.addEventListener("click", function (event){
   document.querySelector(".playlist").setAttribute("src", `https://sverigesradio.se/topsy/direkt/srapi/${idNumber}.mp3`)
-    if(!playing) {
-      play();
-  } else {
-      pause();
-  }
+
+  !playing ? play() : pause();
   })
 }
 }
