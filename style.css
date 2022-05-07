@@ -1,77 +1,194 @@
-body{
-    width: auto;
-    height: 100vh;
-    padding: 0 8% 0 8%;
-    
-  }
-
-h1{
-    width: 100%;
-    font-size:5em;
-    display:flex;
-    justify-content: center;
+@font-face {
+  font-family: "marviofree_personal_use";
+  src: url("./src/fonts/marvio-freepersonaluse-webfont.woff2") format("woff2"),
+    url("./src/fonts/marvio-freepersonaluse-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-ul{
+body {
+  background-color: #a8ceb5;
+  width: auto;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  outline: 3px groove rgb(255, 255, 255);
+  outline-offset: -40px;
+  width: 100%;
+  height: 100vh;
+  background-color: #af9e97;
+  background: url("./src/img/main.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-content {
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  height: 100vh;
+}
+
+.hover,
+.word,
+h1 {
+  cursor: pointer;
+}
+
+h1 {
+  position: relative;
+  color: #e8f6ed;
+  font: 900 80px "Open Sans";
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.concept {
+  position: relative;
+  padding: 5em;
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-align: center;
+}
+.concept:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(rgba(0, 0, 0, 0.3), transparent);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.concept:hover:before {
+  opacity: 0.5;
+}
+
+.concept-seven {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.concept-seven h1 {
+  font-family: "marviofree_personal_use";
+  letter-spacing: 35px;
+  position: relative;
+}
+.concept-seven h1:before {
+  font-family: "marviofree_personal_use";
+  font-size: 50px;
+  content: "feel the vibes";
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  max-width: 400px;
+  color: transparent;
+  letter-spacing: 10px;
+  text-shadow: none;
+}
+.concept-seven:hover h1:before {
+  transition: 1s ease;
+  color: rgba(255, 255, 255, 0.8);
+  animation: jump-out 1s ease forwards;
+}
+
+@keyframes jump-out {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+#h1{
+  text-align: center;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+  font-size: 4rem;
+  cursor: default;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
-  padding:0;
+  padding: 0;
   line-height: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
+  
 }
 
-
 li {
-  position: relative;
-  /* flex-direction: column; */
-  
-  padding: 20px 35px 100px 35px;
-  /* line-height: 100px; */
+ 
+  padding: 0 0 80px;
+  margin: 0 0 8%;
+  line-height: 100px;
   font-weight: bold;
   font-size: 2em;
   text-align: center;
-  width: 13.5%;
-  /* flex-wrap: wrap; */
+  height: auto;
+
+  width: 30%;
+  min-height: 400px;
+  background-color: #fff;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+  
 }
 
-h3{
-  /* width: 100%; */
-  /* margin: 0 0 3% 0; */
-  padding-top: 15px;
-  margin-top: 0;
+li:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  width: 100%;
+  margin-right: 0;
   text-align: center;
-  line-height: 1em;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
-p{
-  /* width: 100%; */
-  line-height: 1.5em;
+p {
+  width: 100%;
+  line-height: 2rem;
   text-align: center;
-  font-size: .5em;
-  margin: 0 0 2em 0;
+  padding: 0 1.5rem 2rem;
+  font-size: 1rem;
+  margin: 0;
+  
 }
 
-button{
-  width: 50%;
-  height: 3em;
-  margin-top: 1em;
-  align-self: center;
+.cards{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0 5rem;
 }
-img{
-  max-width: 70%;
-  width: auto;
-
-}
-img.active, img:hover{
-  filter: brightness(20%);
-  max-width: 100%;
-}
-
-a{
-  line-height: 1.5em;
-  font-size: .6em;
+.card_img {
   display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
 }
