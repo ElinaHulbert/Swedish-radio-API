@@ -1,21 +1,25 @@
-fetch('http://api.sr.se/api/v2/programs/index?channelid=132&pagination=false&format=json')
-  .then(response => response.json())
-  .then(data => showTheTitle(data));
+fetch(
+  "http://api.sr.se/api/v2/programs/index?channelid=132&pagination=false&format=json"
+)
+  .then((response) => response.json())
+  .then((data) => showTheTitle(data));
 
-  function showTheTitle(data){
-    console.log(data)
-    const tracks = document.getElementById("tracks")
+function showTheTitle(data) {
+  console.log(data);
+  const tracks = document.getElementById("tracks");
 
-    for (i = 0; i<data.programs.length; i++){
-      // console.log(data.programs[i])
+  for (i = 0; i < data.programs.length; i++) {
+    // console.log(data.programs[i])
 
+    const playlistItem = document.createElement("div");
+    playlistItem.classList.add("playlist-item");
 
-      const playlistItem = document.createElement('div');
-      playlistItem.classList.add('playlist-item')
-
-      const playlistItemImg = document.createElement('img')
-      playlistItemImg.classList.add('playlist-item-img')
-      playlistItemImg.setAttribute('src', data.programs[i].programimage.toString())
+    const playlistItemImg = document.createElement("img");
+    playlistItemImg.classList.add("playlist-item-img");
+    playlistItemImg.setAttribute(
+      "src",
+      data.programs[i].programimage.toString()
+    );
     //  console.log(playlistItemImg)
 
     //  document.getElementById("cover-image").src=data.channels[6].image
@@ -36,7 +40,3 @@ fetch('http://api.sr.se/api/v2/programs/index?channelid=132&pagination=false&for
 //212 P4 Göteborg
 //220 P4 Halland
 //200 P4 Jämtland
-
-
-
-
