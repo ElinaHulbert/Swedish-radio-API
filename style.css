@@ -149,14 +149,16 @@ li {
 
   width: 30%;
   min-height: 400px;
-  background-color: #fff;
+  background-color: #e8f6ed;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   
   transition: 0.2s;
+  outline: 3px groove rgb(255, 255, 255);
+  outline-offset: -10px;
   
 }
 
-li:hover {
+li:hover, .active{
   transform: translateY(-4%);
   box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
 }
@@ -176,7 +178,7 @@ p {
   padding: 0 1.5rem 2rem;
   font-size: 1rem;
   margin: 0;
-  
+  color: #1f3f33;
 }
 
 .cards{
@@ -204,7 +206,7 @@ p {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
-  font: normal 16px sans-serif;
+  font: normal 16px "Open Sans";
   padding: 45px 50px;
 }
 
