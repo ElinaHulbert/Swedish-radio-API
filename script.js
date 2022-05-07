@@ -63,6 +63,19 @@ function createList(image, idNumber, description, name) {
       !playing ? play() : pause();
     });
   }
+  stayActive();
+}
+
+function stayActive() {
+  let li = document.getElementsByClassName("tag");
+  document.querySelector("li").setAttribute("class", "tag active");
+  for (var i = 0; i < li.length; i++) {
+    li[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
 }
 
 function play() {
@@ -75,5 +88,3 @@ function pause() {
   document.querySelector(".playlist").pause();
   playing = false;
 }
-
-function createProgramLink() {}
