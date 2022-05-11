@@ -194,8 +194,8 @@ p {
   object-fit: cover;
   cursor: pointer;
 }
-.card_img:hover{
-  filter: brightness(50%)
+.card_img:hover, .active{
+  filter: brightness(80%)
 }
 
 /* footer */
